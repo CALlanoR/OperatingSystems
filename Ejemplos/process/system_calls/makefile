@@ -16,8 +16,8 @@ sendmail: sendmail.o
 	gcc -o sendmail sendmail.c
 vfork: vfork.o
 	g++ -o vfork vfork.cc
-sqlite_00: sqlite_00
-	gcc -o sqlite_00 sqlite_00
+sqlite_00: sqlite_00.o
+	gcc -o sqlite_00 sqlite_00.c -lsqlite3
 tar:
 	tar cf ../exercises.tar . 
 	mv ../exercises.tar .
