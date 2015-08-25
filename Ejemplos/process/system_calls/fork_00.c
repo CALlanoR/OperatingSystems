@@ -15,9 +15,9 @@ int main(int argc, char** argv) {
         /**
          1. Comment in the following 3 lines, run makefile and then run ./run.sh fork_00
         */
-        // printf("Before to sleep\n");
-        // fflush(stdout);
-        // sleep(2);
+        printf("Before to sleep\n");
+        fflush(stdout);
+        sleep(10);
         printf("[%d] hello ",main_pid);
     } 
     else 
@@ -27,9 +27,9 @@ int main(int argc, char** argv) {
         /**
          2. Comment in the following 3 lines, run makefile and then run ./run.sh fork_00
         */
-        // printf("Parent is waiting\n");
-        // fflush(stdout);
-        // _pid = wait(&status);
+        printf("Parent is waiting\n");
+        fflush(stdout);
+        _pid = wait(&status);
         printf(" world [%d]\n", main_pid);
         fflush(stdout);
     }

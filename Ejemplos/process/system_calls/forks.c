@@ -221,9 +221,11 @@ void fork9()
  * calling exit(3) or _exit(2), or by returning from main().
  *
  * WEXITSTATUS(status)
- * returns the exit status of the child.  This consists of the
- * least significant 8 bits of the status argument that the child
- * specified in a call to exit(3) or _exit(2) or as the argument
+ * returns the exit status of the child.  This consists 
+ * of the least significant 8 bits of the status argument 
+ * that the child
+ * specified in a call to exit(3) or _exit(2) or as 
+ * the argument
  * for a return statement in main().
  */
 void fork10()
@@ -280,6 +282,10 @@ void fork11()
 /********* 
  * Signals
  *********/
+ //SIGIN = Ctrl-C
+ //SIGTERM = Kind
+ //SIGKILL = force
+ //SIGCHLD= exit status that should be returned to the parent
 
 /*
  * fork12 - Sending signals with the kill() function
@@ -302,7 +308,7 @@ void fork12()
     for (i = 0; i < N; i++) 
     {
        printf("Killing process %d\n", pid[i]);
-       kill(pid[i], SIGINT);
+       kill(pid[i], SIGINT);  //Ctrl-C
     }
 
     for (i = 0; i < N; i++) 
@@ -392,7 +398,10 @@ void fork14()
     	}
     }
     while (ccount > 0)
+    {
+       printf("--%d--", ccount);
 	   pause();
+    }
 }
 
 
@@ -423,11 +432,11 @@ void fork15()
     signal(SIGCHLD, child_handler2);
 
     for (i = 0; i < N; i++)
-	if ((pid[i] = fork()) == 0) {
-	    sleep(1);
-	    exit(0); /* Child: Exit */
+    	if ((pid[i] = fork()) == 0) {
+    	    sleep(1);
+    	    exit(0); /* Child: Exit */
 
-	}
+    	}
     while (ccount > 0) {
 		pause();
     }
